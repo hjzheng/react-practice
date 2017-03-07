@@ -10,10 +10,17 @@ class LifeCycle extends Component {
 		console.log('getDefaultProps', props);
 		this.state = {
 			willMount: false,
-			DidMount: false
+			DidMount: false,
+			num: 0
 		};
 		console.log('getInitialState', this.state);
+		this.clickCallback = this.click.bind(this);
 	}
+
+	// shouldComponentUpdate() {
+	// 	console.log('shouldComponentUpdate', this.state);
+	// 	return true;
+	// }
 
 	componentWillMount() {
 		this.setState({willMount: true});
@@ -25,9 +32,26 @@ class LifeCycle extends Component {
 		console.log('componentDidMount', this.state);
 	}
 
+	componentWillReceiveProps(object, nextProps) {
+		console.log('componentWillReceviceProps', object, nextProps);
+	}
+
+	componentWillUpdate() {
+		console.log('componentWillUpdate', this.state);
+	}
+
+	componentDidUpdate() {
+		console.log('componentDidUpdate', this.state);
+	}
+
+	click() {
+		let num = this.state.num;
+		this.setState({num: ++num});
+	}
+
 	render() {
 		console.log('render', this.state);
-		return <div>Life Cycle</div>;
+		return <div onClick={this.clickCallback}>Life Cycle</div>;
 	}
 }
 
