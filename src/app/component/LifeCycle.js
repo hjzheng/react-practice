@@ -1,10 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 
-const propTypes = {
-	test: PropTypes.string.isRequired
-};
-
 class LifeCycle extends Component {
+
+	// 使用静态属性代替旧的写法
+	static propTypes = {
+		test: PropTypes.string.isRequired
+	};
+
 	constructor(props) {
 		super(props);
 		console.log('getDefaultProps', props);
@@ -14,7 +16,6 @@ class LifeCycle extends Component {
 			num: 0
 		};
 		console.log('getInitialState', this.state);
-		this.clickCallback = this.click.bind(this);
 	}
 
 	// shouldComponentUpdate() {
@@ -44,17 +45,18 @@ class LifeCycle extends Component {
 		console.log('componentDidUpdate', this.state);
 	}
 
-	click() {
+	clickCallback() {
 		let num = this.state.num;
 		this.setState({num: ++num});
 	}
 
 	render() {
 		console.log('render', this.state);
-		return <div onClick={this.clickCallback}>Life Cycle</div>;
+		// :: 可以 bind this
+		return <div onClick={::this.clickCallback}>Life Cycle</div>;
 	}
 }
 
-LifeCycle.propTypes = propTypes;
+// LifeCycle.propTypes = propTypes;
 
 export default LifeCycle;
