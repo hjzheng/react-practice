@@ -5,6 +5,9 @@ import List from './component/List';
 import Profile from './component/Profile';
 import State from './component/State';
 import LifeCycle from './component/LifeCycle';
+import FilterableProductTable from './thinking/FilterableProductTable';
+import PRODUCTS from './thinking/data';
+import Todos from './mobx/Todos';
 
 
 let profileData = {
@@ -28,6 +31,10 @@ class App extends React.Component {
 				<Profile name={'hjzheng'} age={23} child={<State />} />
 				<Profile {...profileData} />
 				<LifeCycle test={'test'} />
+				<h3>thinking</h3>
+				<FilterableProductTable products={PRODUCTS} />
+				<h3>Todos</h3>
+				<Todos />
             </div>
         );
     }

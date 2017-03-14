@@ -2,9 +2,17 @@ import React, { Component, PropTypes } from 'react';
 
 class LifeCycle extends Component {
 
-	// 使用静态属性代替旧的写法
+	// 代替旧的写法
 	static propTypes = {
-		test: PropTypes.string.isRequired
+		test: PropTypes.string.isRequired,
+		bool: PropTypes.bool,
+		pro: PropTypes.func
+	};
+
+	// 默认属性
+	static defaultProps = {
+		bool: true,
+		pro: () => Promise.resolve()
 	};
 
 	constructor(props) {
