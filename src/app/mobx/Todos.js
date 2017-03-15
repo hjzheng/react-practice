@@ -22,7 +22,7 @@ class Todos extends React.Component {
 		let todos = store.todos.map(todo => {
 			return (
 				<li key={todo.id}>
-					<label style={{'text-decoration': todo.done ? 'line-through' : 'none'}}>
+					<label style={{'textDecoration': todo.done ? 'line-through' : 'none'}}>
 						<input type="checkbox" checked={todo.done} onChange={() => { todo.done = !todo.done; }} />{todo.thing}
 					</label>
 				</li>

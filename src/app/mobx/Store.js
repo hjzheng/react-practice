@@ -1,7 +1,13 @@
-import {observable, computed} from 'mobx';
+import mobx, {observable, computed} from 'mobx';
 
 class Store {
 	@observable todos = [];
+
+	constructor() {
+		mobx.autorun(() => {
+			console.log(this.report());
+		});
+	}
 
 	@computed get completedTodosCount() {
 		return this.todos.filter(
@@ -11,6 +17,10 @@ class Store {
 
 	addTodo(todo) {
 		this.todos.push(todo);
+	}
+
+	report() {
+		return `${this.completedTodosCount} / ${this.todos.length}`;
 	}
 
 	getTodos() {
