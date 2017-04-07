@@ -1,6 +1,15 @@
 import mobx, {observable, computed} from 'mobx';
 
 class Store {
+
+	@observable nestObj = {
+		obj: {
+			anotherObj: {
+				a: 1
+			}
+		}
+	};
+
 	@observable todos = [];
 
 	constructor() {

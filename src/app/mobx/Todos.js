@@ -1,6 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import store from './Store';
+import ChildComponent from './ChildComponent';
 
 @observer
 class Todos extends React.Component {
@@ -16,6 +17,11 @@ class Todos extends React.Component {
 
 	addTodo() {
 		store.addTodo({id: store.todos.length + 1, thing: this.refs.todo.value, done: false});
+	}
+
+	doSomeAction() {
+		store.nestObj.obj.anotherObj.a += 1;
+		store.nestObj.obj.anotherObj.b = 2;
 	}
 
 	render() {
@@ -36,6 +42,7 @@ class Todos extends React.Component {
 				</ul>
 				Task done: {store.completedTodosCount} / {store.todos.length}
 				<input ref="todo" /><button onClick={::this.addTodo}>Add Todo</button>
+				<ChildComponent fn={this.doSomeAction} nestObj={store.nestObj} />
 			</div>
 		);
 	}
