@@ -49,6 +49,16 @@ module.exports = {
 		],
 		loaders: [
 			{
+				test: /\.css$/,
+				loaders: ['style', 'css']
+			},
+			{
+				test: /\.scss$/,
+				loaders: ['style', 'css', 'sass'],
+				exclude: NODE_MODULE_PATH,
+				includes: SRC_PATH
+			},
+			{
 				test: /\.js?$/,
 				loaders: ['babel'],
 				include: SRC_PATH

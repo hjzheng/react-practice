@@ -1,0 +1,48 @@
+// 清除浮动
+@mixin clear-fix {
+  zoom: 1;
+  &:before, &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+
+.cb-tabs {
+  .cb-tabs-nav {
+    @include clear-fix;
+    border-bottom: 1px solid #33b5e5;
+    height: 30px;
+    & > li {
+      float: left;
+      margin-right: 8px;
+      border-bottom: 0 solid transparent;
+      font-size: 12px;
+      line-height: 28px;
+      padding: 0 20px;
+      background: #f4f4f4;
+      position: relative;
+      cursor: pointer;
+      top: 1px;
+      &.active {
+        border: 1px solid #33b5e5;
+        border-bottom: 1px solid #fff;
+        background: #fff;
+        & > a {
+          color: #333;
+        }
+      }
+      & > a {
+        color: #145681;
+      }
+      > a:hover {
+        color: #333;
+      }
+    }
+  }
+  .cb-tab-content {
+    padding-top: 10px;
+  }
+}
+

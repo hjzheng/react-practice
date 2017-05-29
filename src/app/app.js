@@ -1,3 +1,5 @@
+import 'normalize.css';
+import './App.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Test from './jsx/Test';
@@ -8,7 +10,8 @@ import LifeCycle from './component/LifeCycle';
 import FilterableProductTable from './thinking/FilterableProductTable';
 import PRODUCTS from './thinking/data';
 import Todos from './mobx/Todos';
-
+import Tabs from './tabs';
+import Modal from './modal';
 
 let profileData = {
 	name: 'HeHe',
@@ -20,6 +23,25 @@ let profileData = {
 
 class App extends React.Component {
 
+	constructor(props) {
+		super(props);
+		this.state = {
+			visible: false
+		};
+	}
+
+	openModal() {
+		this.setState({
+			visible: true
+		});
+	}
+
+	onOK() {
+		this.setState({
+			visible: false
+		});
+	}
+
 	render() {
         return (
             <div>
@@ -28,6 +50,20 @@ class App extends React.Component {
                 <Test />
 				<h3>Component</h3>
 				<List />
+				<h3>Tabs</h3>
+				<Tabs>
+					<Tabs.Pane label="第一个">第一个内容</Tabs.Pane>
+					<Tabs.Pane label="第二个">第二个内容</Tabs.Pane>
+					<Tabs.Pane label="第三个">第三个内容</Tabs.Pane>
+				</Tabs>
+				<h3>对话框</h3>
+				<Modal title={'This is a Title No.1'} visible={this.state.visible} onOK={::this.onOK}>
+					This is a Modal No.1
+				</Modal>
+				<Modal title={'This is a Title No.2'}>
+					This is a Modal No.2
+				</Modal>
+				<button onClick={::this.openModal}>打开第一个对话框</button>
 				<Profile name={'hjzheng'} age={23} child={<State />} />
 				<Profile {...profileData} />
 				<LifeCycle test={'test'} />
