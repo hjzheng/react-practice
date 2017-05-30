@@ -1,5 +1,6 @@
 import './index.scss';
 import React, { Component, PropTypes } from 'react';
+import ReactDOM from 'react-dom';
 
 class Modal extends Component {
 
@@ -12,6 +13,7 @@ class Modal extends Component {
 	}
 
 	static defaultProps = {
+		visible: undefined,
 		onOK: () => {},
 		onClose: () => {},
 		onCancel: () => {}
@@ -22,6 +24,14 @@ class Modal extends Component {
 		this.state = {
 			visible: this.props.visible === undefined ? true : this.props.visible
 		};
+	}
+
+	componentDidMount() {
+		const domNode = ReactDOM.findDOMNode(this);
+		const eleRect = domNode.getBoundingClientRect();
+		const top = document.documentElement.clientHeight / 2 - eleRect.height / 2;
+		// 修正对话框位置
+		domNode.style.top = `${top}px`;
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -61,7 +71,7 @@ class Modal extends Component {
 
 	render() {
 		return (
-			<div className="modal fade" style={{ top: this.state.visible ? '30%' : '-200%'}}>
+			<div className="modal" style={{ visibility: this.state.visible ? 'visible' : 'hidden' }}>
 				<div className="modal-dialog">
 					<div className="modal-content">
 						<div className="modal-header">

@@ -1,6 +1,5 @@
 .modal {
   position: fixed;
-  top: -200%;
   left: 50%;
   margin-left: -220px;
   z-index: 1050;
@@ -71,12 +70,4 @@ button.close {
   z-index: 1040;
   opacity: 0.4;
   background: #000;
-}
-
-.fade {
-  transition: top .6s ease-out;
-}
-
-.fade.in {
-  top: 25%;
 }

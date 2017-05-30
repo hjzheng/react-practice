@@ -24,6 +24,7 @@
     "modules": true
   },
   "rules": {
+    "no-debugger": 0,
     "accessor-pairs": 2,
     "arrow-spacing": [2, { "before": true, "after": true }],
     "arrow-parens": [2, "as-needed"],
@@ -130,7 +131,7 @@
     "react/jsx-space-before-closing": 2,
     "react/jsx-uses-react": 2,
     "react/jsx-uses-vars": 2,
-    "react/no-did-mount-set-state": 2,
+    "react/no-did-mount-set-state": 0,
     "react/no-did-update-set-state": 2,
     "react/no-is-mounted": 2,
     "react/no-multi-comp": 0,
