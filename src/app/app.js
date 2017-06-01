@@ -12,6 +12,7 @@ import PRODUCTS from './thinking/data';
 import Todos from './mobx/Todos';
 import Tabs from './tabs';
 import Modal from './modal';
+import DropDown from './dropdown';
 
 let profileData = {
 	name: 'HeHe',
@@ -42,6 +43,10 @@ class App extends React.Component {
 		});
 	}
 
+	dropdownChange() {
+		console.log(arguments);
+	}
+
 	render() {
         return (
             <div>
@@ -64,6 +69,11 @@ class App extends React.Component {
 					This is a Modal No.2
 				</Modal>
 				<button onClick={::this.openModal}>打开第一个对话框</button>
+				<h3>选择框</h3>
+				<div>
+					<DropDown defaultValue={'xian'} onChange={this.dropdownChange} options={[{ label: '西安', value: 'xian' }, { label: '上海', value: 'shanghai' }, { label: '北京', value: 'beijing' }]} />
+					<DropDown onChange={this.dropdownChange} options={[{ label: '西安', value: 'xian' }, { label: '上海', value: 'shanghai' }, { label: '北京', value: 'beijing' }]} />
+				</div>
 				<Profile name={'hjzheng'} age={23} child={<State />} />
 				<Profile {...profileData} />
 				<LifeCycle test={'test'} />
