@@ -7,23 +7,43 @@ class Dropdown extends Component {
 	static propTypes = {
 		defaultValue: PropTypes.string,
 		options: PropTypes.array,
-		onChange: PropTypes.func
+		onChange: PropTypes.func,
+		value: PropTypes.string
 	}
 
 	static defaultProps = {
-		defaultValue: null,
+		defaultValue: '',
 		options: [],
 		onChange: () => {}
 	}
 
 	constructor(props) {
 		super(props);
+
+		let value = this.props.defaultValue;
+
+		if (this.props.value !== undefined) {
+			value = this.props.value;
+		}
+
 		this.state = {
-			value: this.props.defaultValue,
-			label: this.findLabelByValue(this.props.defaultValue),
+			value,
+			label: this.findLabelByValue(value),
 			showMenu: false
 		};
+
+
 		this.bindDocClick = this.handleDocumentClick.bind(this);
+	}
+
+	componentWillReceiveProps(nextProps) {
+		console.log(nextProps);
+		if (nextProps.value !== undefined) {
+			this.setState({
+				value: nextProps.value,
+				label: this.findLabelByValue(nextProps.value)
+			});
+		}
 	}
 
 	handleDocumentClick (event) {
@@ -41,9 +61,13 @@ class Dropdown extends Component {
 	}
 
 	clickHandler(option) {
+		if (this.props.value === undefined) {
+			this.setState({
+				value: option.value,
+				label: option.label
+			});
+		}
 		this.setState({
-			value: option.value,
-			label: option.label,
 			showMenu: false
 		});
 		this.props.onChange(option.value, option);

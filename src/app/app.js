@@ -27,7 +27,8 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			visible: false
+			visible: false,
+			value: 'xian'
 		};
 	}
 
@@ -45,6 +46,12 @@ class App extends React.Component {
 
 	dropdownChange() {
 		console.log(arguments);
+	}
+
+	dropdownChangeValue(value) {
+		this.setState({
+			value
+		});
 	}
 
 	render() {
@@ -72,7 +79,7 @@ class App extends React.Component {
 				<h3>选择框</h3>
 				<div>
 					<DropDown defaultValue={'xian'} onChange={this.dropdownChange} options={[{ label: '西安', value: 'xian' }, { label: '上海', value: 'shanghai' }, { label: '北京', value: 'beijing' }]} />
-					<DropDown onChange={this.dropdownChange} options={[{ label: '西安', value: 'xian' }, { label: '上海', value: 'shanghai' }, { label: '北京', value: 'beijing' }]} />
+					<DropDown value={this.state.value} onChange={::this.dropdownChangeValue} options={[{ label: '西安', value: 'xian' }, { label: '上海', value: 'shanghai' }, { label: '北京', value: 'beijing' }]} />
 				</div>
 				<Profile name={'hjzheng'} age={23} child={<State />} />
 				<Profile {...profileData} />
