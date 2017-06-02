@@ -30,6 +30,14 @@ class App extends React.Component {
 			visible: false,
 			value: 'xian'
 		};
+		this.options = [
+			{ label: '西安', value: 'xian' },
+			{ label: '上海', value: 'shanghai' },
+			{ label: '北京', value: 'beijing' },
+			{ label: '杭州', value: 'hangzhou' },
+			{ label: '厦门', value: 'xiamen' },
+			{ label: '成都', value: 'chengdu' }
+		];
 	}
 
 	openModal() {
@@ -80,6 +88,21 @@ class App extends React.Component {
 				<div>
 					<DropDown defaultValue={'xian'} onChange={this.dropdownChange} options={[{ label: '西安', value: 'xian' }, { label: '上海', value: 'shanghai' }, { label: '北京', value: 'beijing' }]} />
 					<DropDown value={this.state.value} onChange={::this.dropdownChangeValue} options={[{ label: '西安', value: 'xian' }, { label: '上海', value: 'shanghai' }, { label: '北京', value: 'beijing' }]} />
+					<DropDown options={this.options} />
+					<DropDown defaultValue={'github'} >
+						<DropDown.Option value="facebook">
+							<i className="fa fa-facebook-official" aria-hidden="true">&nbsp;facebook</i>
+						</DropDown.Option>
+						<DropDown.Option value="github">
+							<i className="fa fa-github-square" aria-hidden="true">&nbsp;github</i>
+						</DropDown.Option>
+						<DropDown.Option value="twitter">
+							<i className="fa fa-twitter-square" aria-hidden="true">&nbsp;twitter</i>
+						</DropDown.Option>
+						<DropDown.Option value="weixin">
+							<i className="fa fa-weixin" aria-hidden="true">&nbsp;weixin</i>
+						</DropDown.Option>
+					</DropDown>
 				</div>
 				<Profile name={'hjzheng'} age={23} child={<State />} />
 				<Profile {...profileData} />
