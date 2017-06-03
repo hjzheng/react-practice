@@ -38,7 +38,9 @@ class App extends React.Component {
 			{ label: '厦门', value: 'xiamen' },
 			{ label: '成都', value: 'chengdu' }
 		];
+	}
 
+	openConfirm() {
 		Modal.confirm({'title': '这是一个确认框', message: '你确定你要做折磨SB的事情吗?'});
 	}
 
@@ -86,6 +88,7 @@ class App extends React.Component {
 					This is a Modal No.2
 				</Modal>
 				<button onClick={::this.openModal}>打开第一个对话框</button>
+				<button onClick={this.openConfirm}>打开一个确认框</button>
 				<h3>选择框</h3>
 				<div>
 					<DropDown defaultValue={'xian'} onChange={this.dropdownChange} options={[{ label: '西安', value: 'xian' }, { label: '上海', value: 'shanghai' }, { label: '北京', value: 'beijing' }]} />

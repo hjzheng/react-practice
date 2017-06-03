@@ -114,17 +114,19 @@ class Modal extends Component {
 
 Modal.confirm = function(options) {
 
+	let div = document.createElement('div');
+	document.body.appendChild(div);
+
 	const defaultOptions = {
 		message: 'confirm message',
 		title: 'confirm dialog',
 		onOK: () => {},
 		onClose: () => {},
-		onCancel: () => {}
+		onCancel: () => {},
+		container: div
 	};
 
 	const props = Object.assign(defaultOptions, options);
-	let div = document.createElement('div');
-	document.body.appendChild(div);
 
 	function destroy() {
 		const unmountResult = ReactDOM.unmountComponentAtNode(div);
@@ -134,11 +136,11 @@ Modal.confirm = function(options) {
 	}
 
 	ReactDOM.render(
-		<Modal title={props.title} onOK={() => { props.onOK(); destroy(); }} onCancel={() => { props.onCancel(); destroy(); }} onClose={() => { props.onClose(); destroy(); }}>
+		<Modal title={props.title} visible onOK={() => { props.onOK(); destroy(); }} onCancel={() => { props.onCancel(); destroy(); }} onClose={() => { props.onClose(); destroy(); }}>
 			<i className="fa fa-code" aria-hidden="true" style={{ color: 'red', fontSize: 24 }}>&nbsp;</i>
 			{props.message}
 		</Modal>
-		, div);
+		, props.container);
 
 	return {
 		destroy
