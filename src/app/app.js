@@ -38,6 +38,8 @@ class App extends React.Component {
 			{ label: '厦门', value: 'xiamen' },
 			{ label: '成都', value: 'chengdu' }
 		];
+
+		Modal.confirm({'title': '这是一个确认框', message: '你确定你要做折磨SB的事情吗?'});
 	}
 
 	openModal() {
@@ -80,7 +82,7 @@ class App extends React.Component {
 				<Modal title={'This is a Title No.1'} visible={this.state.visible} onOK={::this.onOK}>
 					This is a Modal No.1
 				</Modal>
-				<Modal title={'This is a Title No.2'}>
+				<Modal title={'This is a Title No.2'} footer={<div>自定义footer</div>}>
 					This is a Modal No.2
 				</Modal>
 				<button onClick={::this.openModal}>打开第一个对话框</button>

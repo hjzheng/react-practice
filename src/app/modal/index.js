@@ -9,7 +9,8 @@ class Modal extends Component {
 		visible: PropTypes.bool,
 		onOK: PropTypes.func,
 		onClose: PropTypes.func,
-		onCancel: PropTypes.func
+		onCancel: PropTypes.func,
+		footer: PropTypes.element
 	}
 
 	static defaultProps = {
@@ -69,27 +70,79 @@ class Modal extends Component {
 		}
 	}
 
+	_renderHeader() {
+		return (
+			<div className="modal-header">
+				<button type="button" className="close" onClick={::this.handleClose}>×</button>
+				<h4 className="modal-title">{this.props.title}</h4>
+			</div>
+		);
+	}
+
+	_renderBody() {
+		return (
+			<div className="modal-body">
+				{this.props.children}
+			</div>
+		);
+	}
+
+	_renderFooter() {
+		return (
+			<div className="modal-footer">
+				{
+					this.props.footer ? this.props.footer : (<div><button type="button" onClick={::this.handleOK}>确定</button> <button type="button" onClick={::this.handleCancel}>取消</button></div>)
+				}
+			</div>
+		);
+	}
+
 	render() {
 		return (
 			<div className="modal" style={{ visibility: this.state.visible ? 'visible' : 'hidden' }}>
 				<div className="modal-dialog">
 					<div className="modal-content">
-						<div className="modal-header">
-							<button type="button" className="close" onClick={::this.handleClose}>×</button>
-							<h4 className="modal-title">{this.props.title}</h4>
-						</div>
-						<div className="modal-body">
-							{this.props.children}
-						</div>
-						<div className="modal-footer">
-							<button type="button" onClick={::this.handleOK}>确定</button>
-							<button type="button" onClick={::this.handleCancel}>取消</button>
-						</div>
+						{this._renderHeader()}
+						{this._renderBody()}
+						{this._renderFooter()}
 					</div>
 				</div>
 			</div>
 		);
 	}
 }
+
+Modal.confirm = function(options) {
+
+	const defaultOptions = {
+		message: 'confirm message',
+		title: 'confirm dialog',
+		onOK: () => {},
+		onClose: () => {},
+		onCancel: () => {}
+	};
+
+	const props = Object.assign(defaultOptions, options);
+	let div = document.createElement('div');
+	document.body.appendChild(div);
+
+	function destroy() {
+		const unmountResult = ReactDOM.unmountComponentAtNode(div);
+		if (unmountResult && div.parentNode) {
+			div.parentNode.removeChild(div);
+		}
+	}
+
+	ReactDOM.render(
+		<Modal title={props.title} onOK={() => { props.onOK(); destroy(); }} onCancel={() => { props.onCancel(); destroy(); }} onClose={() => { props.onClose(); destroy(); }}>
+			<i className="fa fa-code" aria-hidden="true" style={{ color: 'red', fontSize: 24 }}>&nbsp;</i>
+			{props.message}
+		</Modal>
+		, div);
+
+	return {
+		destroy
+	};
+};
 
 export default Modal;
