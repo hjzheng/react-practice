@@ -1,0 +1,91 @@
+$primary-color: #f40;
+
+.header {
+    .title {
+      font-size: 20px;
+      color: #E9DC51;
+    }
+
+    .map {
+      width: 800px;
+      &>.key {
+        color: #999999;
+        width: 100px;
+        display: inline-block;
+      }
+    }
+}
+
+/*
+样式默认局部
+使用了 CSS Modules 后，就相当于给每个 class 名外加加了一个 :local，以此来实现样式的局部化，如果你想切换到全局模式，使用对应的 :global
+
+.normal {
+  color: green;
+}
+
+以上与下面等价
+:local(.normal) {
+  color: green;
+}
+
+定义全局样式
+:global(.btn) {
+  color: red;
+}
+
+定义多个全局样式
+:global {
+  .link {
+    color: green;
+  }
+  .box {
+    color: yellow;
+  }
+}
+*/
+
+:global {
+  h2, h3 {
+    color: #272296;
+  }
+}
+
+/*
+Compose 来组合样式
+*/
+
+.button {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.primary-button {
+  composes: button;
+  display: block;
+  color: #fff;
+  background-color: $primary-color;
+  border-color: #2e6da4;
+}
+
+:export {
+  primaryColor: $primary-color;
+}
+
+/*
+参考阅读
+https://github.com/camsong/blog/issues/5
+*/

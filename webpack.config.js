@@ -5,6 +5,7 @@ var webpack = require('webpack');
 var ROOT_PATH = path.resolve(__dirname);
 var BUILD_PATH = path.resolve(ROOT_PATH, 'build');
 var SRC_PATH = path.resolve(ROOT_PATH, 'src');
+var CSS_MODULE_PATH = path.resolve(ROOT_PATH, 'src/app/cssModule');
 
 var APP_PATH = path.resolve(SRC_PATH, 'app');
 var NODE_MODULE_PATH = /node_modules/;
@@ -54,9 +55,13 @@ module.exports = {
 			},
 			{
 				test: /\.scss$/,
-				loaders: ['style', 'css', 'sass'],
-				exclude: NODE_MODULE_PATH,
-				includes: SRC_PATH
+				loaders: ['style', 'css', 'sass?sourceMap=true'],
+				exclude: CSS_MODULE_PATH
+			},
+			{
+				test: /\.scss$/,
+				loaders: ['style', 'css?modules&camelCase&localIdentName=[path]__[name]_[local]___[hash:base64:5]', 'sass?sourceMap=true'],
+				include: CSS_MODULE_PATH
 			},
 			{
 				test: /\.js?$/,

@@ -13,6 +13,7 @@ import Todos from './mobx/Todos';
 import Tabs from './tabs';
 import Modal from './modal';
 import DropDown from './dropdown';
+import CSSModule from './cssModule';
 
 let profileData = {
 	name: 'HeHe',
@@ -122,6 +123,7 @@ class App extends React.Component {
 				<Todos />
 				<h2 onClick={::this.openConfirm2}>Confirm 试验</h2>
 				<div ref="confirm"></div>
+				<CSSModule />
             </div>
         );
     }
