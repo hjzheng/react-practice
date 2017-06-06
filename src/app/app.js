@@ -44,6 +44,10 @@ class App extends React.Component {
 		Modal.confirm({'title': '这是一个确认框', message: '你确定你要做折磨SB的事情吗?'});
 	}
 
+	openConfirm2() {
+		Modal.confirm({'title': '这是一个确认框', message: '你确定你要做折磨SB的事情吗?', container: this.refs.confirm.appendChild(document.createElement('div'))});
+	}
+
 	openModal() {
 		this.setState({
 			visible: true
@@ -116,6 +120,8 @@ class App extends React.Component {
 				<FilterableProductTable products={PRODUCTS} />
 				<h3>Todos</h3>
 				<Todos />
+				<h2 onClick={::this.openConfirm2}>Confirm 试验</h2>
+				<div ref="confirm"></div>
             </div>
         );
     }

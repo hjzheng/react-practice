@@ -123,20 +123,20 @@ Modal.confirm = function(options) {
 		onOK: () => {},
 		onClose: () => {},
 		onCancel: () => {},
-		container: div
+		container: div // 此参数不建议使用
 	};
 
 	const props = Object.assign(defaultOptions, options);
 
 	function destroy() {
-		const unmountResult = ReactDOM.unmountComponentAtNode(div);
-		if (unmountResult && div.parentNode) {
-			div.parentNode.removeChild(div);
+		const unmountResult = ReactDOM.unmountComponentAtNode(props.container);
+		if (unmountResult && props.container.parentNode) {
+			props.container.parentNode.removeChild(props.container);
 		}
 	}
 
 	ReactDOM.render(
-		<Modal title={props.title} visible onOK={() => { props.onOK(); destroy(); }} onCancel={() => { props.onCancel(); destroy(); }} onClose={() => { props.onClose(); destroy(); }}>
+		<Modal title={props.title} onOK={() => { props.onOK(); destroy(); }} onCancel={() => { props.onCancel(); destroy(); }} onClose={() => { props.onClose(); destroy(); }}>
 			<i className="fa fa-code" aria-hidden="true" style={{ color: 'red', fontSize: 24 }}>&nbsp;</i>
 			{props.message}
 		</Modal>
