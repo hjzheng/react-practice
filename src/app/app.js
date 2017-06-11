@@ -14,7 +14,7 @@ import Tabs from './tabs';
 import Modal from './modal';
 import DropDown from './dropdown';
 import CSSModule from './cssModule';
-import { If, Else, Then } from './If';
+// import { If, Else, Then } from './If';
 
 let profileData = {
 	name: 'HeHe',
@@ -125,9 +125,15 @@ class App extends React.Component {
 				<h2 onClick={::this.openConfirm2}>Confirm 试验</h2>
 				<div ref="confirm"></div>
 				<CSSModule />
-				<If condition>
-					<Then><span>{'我喜欢条件语句'}</span></Then>
-					<Else><span>{'我喜欢三元表达式'}</span></Else>
+				<h2>jsx-control-statements</h2>
+				<If condition={1} >
+					<div>IfBlock</div>
+				</If>
+				<If condition={1} >
+					one
+					{'two'}
+					<div>three</div>
+					<span>four</span>
 				</If>
             </div>
         );

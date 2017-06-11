@@ -1,7 +1,8 @@
 {
   "parser": "babel-eslint",
   "plugins": [
-    "react"
+    "react",
+    "jsx-control-statements"
   ],
   "env": {
     "browser": true,
@@ -142,7 +143,14 @@
     "react/require-extension": 2,
     "react/self-closing-comp": 2,
     "react/sort-comp": 2,
-    "react/wrap-multilines": 2
+    "react/wrap-multilines": 2,
+    "jsx-control-statements/jsx-choose-not-empty": 1,
+    "jsx-control-statements/jsx-for-require-each": 1,
+    "jsx-control-statements/jsx-for-require-of": 1,
+    "jsx-control-statements/jsx-if-require-condition": 1,
+    "jsx-control-statements/jsx-otherwise-once-last": 1,
+    "jsx-control-statements/jsx-use-if-tag": 0,
+    "jsx-control-statements/jsx-when-require-condition": 1,
   },
-  "extends": "eslint:recommended"
+  "extends": ["eslint:recommended", "plugin:jsx-control-statements/recommended"]
 }
