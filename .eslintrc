@@ -97,7 +97,7 @@
     "no-this-before-super": 2,
     "no-throw-literal": 2,
     "no-trailing-spaces": 2,
-    "no-undef": 2,
+    "no-undef": 0,
     "no-undef-init": 2,
     "no-unexpected-multiline": 2,
     "no-unreachable": 2,
@@ -127,7 +127,7 @@
     "react/jsx-closing-bracket-location": [1, {"selfClosing": "after-props", "nonEmpty": "after-props"}],
     "react/jsx-curly-spacing": 2,
     "react/jsx-no-duplicate-props": 2,
-    "react/jsx-no-undef": 2,
+    "react/jsx-no-undef": 0,
     "react/jsx-pascal-case": 2,
     "react/jsx-space-before-closing": 2,
     "react/jsx-uses-react": 2,
@@ -144,13 +144,8 @@
     "react/self-closing-comp": 2,
     "react/sort-comp": 2,
     "react/wrap-multilines": 2,
-    "jsx-control-statements/jsx-choose-not-empty": 1,
-    "jsx-control-statements/jsx-for-require-each": 1,
-    "jsx-control-statements/jsx-for-require-of": 1,
-    "jsx-control-statements/jsx-if-require-condition": 1,
-    "jsx-control-statements/jsx-otherwise-once-last": 1,
     "jsx-control-statements/jsx-use-if-tag": 0,
-    "jsx-control-statements/jsx-when-require-condition": 1,
+    "jsx-control-statements/jsx-jcs-no-undef": 1
   },
   "extends": ["eslint:recommended", "plugin:jsx-control-statements/recommended"]
 }

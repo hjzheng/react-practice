@@ -33,6 +33,7 @@
     "eslint-plugin-react": "^4.3.0",
     "html-webpack-plugin": "^2.21.0",
     "jsx-control-statements": "^3.2.5",
+    "react-lumberjack": "^2.0.0",
     "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.1",

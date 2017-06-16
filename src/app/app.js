@@ -1,5 +1,7 @@
 import 'normalize.css';
 import './App.scss';
+// 添加 react-lumberjack https://github.com/ryanflorence/react-lumberjack
+import 'react-lumberjack';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Test from './jsx/Test';
@@ -135,6 +137,10 @@ class App extends React.Component {
 					<div>three</div>
 					<span>four</span>
 				</If>
+				<For each="item" index="idx" of={[1, 2, 3]}>
+					<span key={idx}>{item}</span>
+					<span key={idx + '_2'}>Static Text</span>
+				</For>
             </div>
         );
     }
