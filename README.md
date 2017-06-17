@@ -20,6 +20,9 @@
     - tabs
     - modal
 - Mobx
+
+#### 乱七八糟
+
 - 关于 React 在 [0.13](https://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html) 中取消自动绑定的原因:
     - 表面上看自动绑定给开发带来了便利，而Facebook却认为这破坏了JavaScript的语言习惯，其背后的神奇（Magic）逻辑或许会给初学者带来困惑，甚至开发者如果从React再转到其它库也可能会无所适从。
 - 关于 React 对文本加 react-text 注释(comments) 的[原因](https://stackoverflow.com/questions/38133978/reactjs-net-are-react-text-tags-required-when-rendered):
@@ -68,5 +71,5 @@ function shouldIKeepSomethingInReactState() {
 
 #### 相关书籍
 
-[React（第2版）：引领未来的用户界面开发框架](https://book.douban.com/subject/26918475/) 入门经典
-[React Design Patterns and Best Practices](https://book.douban.com/subject/26963822/) 进阶神器
+- [React（第2版）：引领未来的用户界面开发框架](https://book.douban.com/subject/26918475/) 入门经典
+- [React Design Patterns and Best Practices](https://book.douban.com/subject/26963822/) 进阶神器
