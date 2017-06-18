@@ -17,6 +17,7 @@ import Modal from './modal';
 import DropDown from './dropdown';
 import CSSModule from './cssModule';
 // import { If, Else, Then } from './If';
+import TestHoC from './HoC/TestHoC';
 
 let profileData = {
 	name: 'HeHe',
@@ -32,7 +33,8 @@ class App extends React.Component {
 		super(props);
 		this.state = {
 			visible: false,
-			value: 'xian'
+			value: 'xian',
+			loading: true
 		};
 		this.options = [
 			{ label: '西安', value: 'xian' },
@@ -42,6 +44,14 @@ class App extends React.Component {
 			{ label: '厦门', value: 'xiamen' },
 			{ label: '成都', value: 'chengdu' }
 		];
+	}
+
+	componentDidMount() {
+		setTimeout(() => {
+			this.setState({
+				loading: false
+			});
+		}, 2000);
 	}
 
 	openConfirm() {
@@ -141,6 +151,8 @@ class App extends React.Component {
 					<span key={idx}>{item}</span>
 					<span key={idx + '_2'}>Static Text</span>
 				</For>
+				<h2>HoC</h2>
+				<TestHoC isLoading={this.state.loading} prop1="prop1" prop2="prop2" />
             </div>
         );
     }

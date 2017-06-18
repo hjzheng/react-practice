@@ -55,8 +55,8 @@ function shouldIKeepSomethingInReactState() {
     - 自定义校验
     - 生产环境, 删除 PropTypes: [插件](https://github.com/oliviertassinari/babel-plugin-transform-react-remove-prop-types)
     - 通过 PropTypes 生成 doc: [docgen](https://github.com/reactjs/react-docgen)
-- React StoryBook
-- Container and Presentational pattern
+- React StoryBook (?)
+- Container and Presentational pattern [example](https://github.com/hjzheng/react-demo-starter)
     - Container components
         - They are more concerned about the behavior
         - They render their presentational components
@@ -68,6 +68,10 @@ function shouldIKeepSomethingInReactState() {
         - They render the HTML markup(or other components)
         - They receive data from the parents in the form of props
         - They are often written as stateless functional components
+- Mixin and HoC (代码复用的角度, React 引入了 Mixin, 但又在 0.13 取消了 Mixin, 原因如下: [见官网](https://facebook.github.io/react/blog/2016/07/13/mixins-considered-harmful.html))
+    - 官方提到的三个原因: 1. 引入了隐式依赖 2. 命名冲突 3. snowballing complexity
+    - 本人认为主要还是命名冲突, 在中小型项目中, 解决了命名冲突, Mixin 也是不错的解决方案, 之前在 [AngularJS + ES6](https://github.com/hjzheng/angular-utils) 中使用 Mixin 装饰器的尝试, 效果还是很不错的.
+    - HoC
 
 #### 相关书籍
 
