@@ -51,7 +51,7 @@ class App extends React.Component {
 			this.setState({
 				loading: false
 			});
-		}, 2000);
+		}, 3000);
 	}
 
 	openConfirm() {

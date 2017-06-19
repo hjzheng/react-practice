@@ -72,8 +72,14 @@ function shouldIKeepSomethingInReactState() {
     - 官方提到的三个原因: 1. 引入了隐式依赖 2. 命名冲突 3. snowballing complexity
     - 本人认为主要还是命名冲突, 在中小型项目中, 解决了命名冲突, Mixin 也是不错的解决方案, 之前在 [AngularJS + ES6](https://github.com/hjzheng/angular-utils) 中使用 Mixin 装饰器的尝试, 效果还是很不错的.
     - HoC
+        - 扩展 prop
+        - 将无状态组件扩展为有状态组件
+        - 其它功能 (?)
 
 #### 相关书籍
 
 - [React（第2版）：引领未来的用户界面开发框架](https://book.douban.com/subject/26918475/) 入门经典
 - [React Design Patterns and Best Practices](https://book.douban.com/subject/26963822/) 进阶神器
+
+#### 补充
+- [脚手架](https://github.com/facebookincubator/create-react-app) 初学者福音
