@@ -34,17 +34,9 @@ export default List;
 
 props 就是传入组件的属性, 可以是任意类型
 
-
 可以通过 PropTypes 指定传入组件的属性类型
 
-可以通过装饰器进行处理
-
 https://facebook.github.io/react/docs/typechecking-with-proptypes.html
-
-```
-
-```
-
 
 ```js
 import React, { Component, PropTypes } from 'react';
@@ -84,7 +76,7 @@ state 是组件内部状态, 它可以直接在构造函数内部使用 this.sta
 
 #### 注册事件
 
-注意 bind, 后期可以自定义 装饰器来处理
+注意 bind
 
 
 #### 组件生命周期
