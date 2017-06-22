@@ -10,7 +10,7 @@
 5. 脚手架，可以使用 https://github.com/facebookincubator/create-react-app
     - 通过配置 proxy 与后端交互
     - 你可以使用 json-server https://github.com/typicode/json-server
-6. 如何取数据，可以参考 https://github.com/matthew-andrews/isomorphic-fetch
+6. 如何取数据，可以参考 https://github.com/github/fetch
 7. 网页中的 iconfont 可以参考 http://fontawesome.io/ 能找到最好，找不到的话，可以随便放一个作为站位符
 8. 所有相关代码必须提交到 github: https://github.com
 
