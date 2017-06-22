@@ -81,25 +81,22 @@ state 是组件内部状态, 它可以直接在构造函数内部使用 this.sta
 
 #### 组件生命周期
 
-组件初始化 https://facebook.github.io/react/docs/state-and-lifecycle.html
+##### 组件初始化 https://facebook.github.io/react/docs/state-and-lifecycle.html
+    - getDefaultProps --> 在 constructor 中处理 constructor(props){super(props)}
+    - getInitialState --> 在 constructor 中处理 this.state
+    - componentWillMount --> 在 render 之前调用 一次
+    - render
+    - componentDidMount --> 在 render 之后调用 一次
 
-getDefaultProps --> 在 constructor 中处理 constructor(props){super(props)}
-getInitialState --> 在 constructor 中处理 this.state
-componentWillMount --> 在 render 之前调用 一次
-render
-componentDidMount --> 在 render 之后调用 一次
+##### 组件 props 更新
+    - componentWillReceiveProps(object, nextProps)
+    - shouldComponentUpdate -> 返回 boolean 决定是否 render 组件
+    - componentWillUpdate
+    - render
+    - componentDidUpdate
 
-组件 props 更新
-componentWillReceiveProps(object, nextProps)
-
-shouldComponentUpdate -> 返回 boolean 决定是否 render 组件
-
-componentWillUpdate
-render
-componentDidUpdate
-
-组件卸载
-componentWillUnmount
+##### 组件卸载
+    - componentWillUnmount
 
 
 #### DOM
