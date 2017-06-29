@@ -71,8 +71,9 @@ function shouldIKeepSomethingInReactState() {
 - Mixin and HoC (代码复用的角度, React 引入了 Mixin, 但又在 0.13 取消了 Mixin, 原因如下: [见官网](https://facebook.github.io/react/blog/2016/07/13/mixins-considered-harmful.html))
     - 官方提到的三个原因: 1. 引入了隐式依赖 2. 命名冲突 3. snowballing complexity
     - 本人认为主要还是命名冲突, 在中小型项目中, 解决了命名冲突, Mixin 也是不错的解决方案, 之前在 [AngularJS + ES6](https://github.com/hjzheng/angular-utils) 中使用 Mixin 装饰器的尝试, 效果还是很不错的.
+    - 实际上, 0.13 前的 React 对 mixin 进行了处理, 1. 不允许出现名称相同的普通方法(会在 console 中进行提示) 2. 生命周期方法会叠加在一起顺序执行
     - HoC
-        - 扩展 prop
+        - 修改 prop (增加, 删除, 覆盖)
         - 将无状态组件扩展为有状态组件
         - 其它功能 (?)
 
