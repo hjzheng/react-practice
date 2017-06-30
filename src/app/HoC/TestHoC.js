@@ -6,7 +6,7 @@ export default class TestHoC extends Component {
 
 	static propTypes = {
 		prop1: PropTypes.string,
-		prop2: PropTypes.bool
+		prop2: PropTypes.string
 	}
 
 	render() {

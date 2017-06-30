@@ -24,6 +24,7 @@ class LifeCycle extends Component {
 			num: 0
 		};
 		console.log('getInitialState', this.state);
+		this.refsArr = [];
 	}
 
 	// shouldComponentUpdate() {
@@ -53,6 +54,12 @@ class LifeCycle extends Component {
 		console.log('componentDidUpdate', this.state);
 	}
 
+	componentWillUnmount() {
+		// this.setState({willUnMount: true});
+		console.log('componentWillUnMount', this.state);
+	}
+
+
 	clickCallback() {
 		let num = this.state.num;
 		this.setState({num: ++num});
@@ -61,7 +68,7 @@ class LifeCycle extends Component {
 	render() {
 		console.log('render', this.state);
 		// :: 可以 bind this
-		return <div onClick={::this.clickCallback}>Life Cycle</div>;
+		return <div onClick={::this.clickCallback} ref={ele => { this.refsArr.push(ele); console.log(this.refsArr[0] === this.refsArr[2]); }}>Life Cycle</div>;
 	}
 }
 

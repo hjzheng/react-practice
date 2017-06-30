@@ -99,7 +99,7 @@ class App extends React.Component {
 					<Tabs.Pane label="第三个">第三个内容</Tabs.Pane>
 				</Tabs>
 				<h3>对话框</h3>
-				<Modal title={'This is a Title No.1'} visible={this.state.visible} onOK={::this.onOK}>
+				<Modal title={'This is a Title No.1'} visible={this.state.visible} onOK={::this.onOK} ref={modalInstance => modalInstance && modalInstance.test()}>
 					This is a Modal No.1
 				</Modal>
 				<Modal title={'This is a Title No.2'} footer={<div>自定义footer</div>}>

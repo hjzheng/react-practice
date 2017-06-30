@@ -43,6 +43,10 @@ class Modal extends Component {
 		}
 	}
 
+	test() {
+		console.log('----------------', 'test', '----------------');
+	}
+
 	handleOK() {
 		this.props.onOK();
 		if (this.props.visible === undefined) {
