@@ -16,10 +16,12 @@ class List extends Component {
 
 	render() {
 	// li 元素需要添加 key, https://facebook.github.io/react/docs/lists-and-keys.html#keys
+	// 错误的示范 是将 数组的 index 作为 key 该 index 是不稳定的, 因为当数组中元素顺序改变或添加或删除元素时, 对应元素的 index 发生改变
+	// 这样的话, react 的 diff 算法, 就没有意义了
 		return (
 			<ul>
 				{
-					(this.state.list.map((item, index) => <li key={index}> {item} </li>))
+					(this.state.list.map((item) => <li key={item}> {item} </li>))
 				}
 			</ul>
 		);

@@ -15,7 +15,7 @@ class List extends Component {
 		return (
 			<ul>
 				{
-					(this.state.list.map((item, index) => <li key={index}> {item} </li>))
+					(this.state.list.map(item => <li key={item}> {item} </li>))
 				}
 			</ul>
 		);
