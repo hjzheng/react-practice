@@ -24,14 +24,14 @@
 1. React（第2版）: 引领未来的用户界面开发框架 https://book.douban.com/subject/26918475/ （1-9章）
 
 #### 考核题目2
-使用 React 和 React-Router 完成饿了吗 个人中心, 我的订单以及订单详情页面 https://www.ele.me/profile/order (自己可以自行在饿了吗完成下单, 产生带页面的数据)
+使用 React 和 React-Router 完成饿了吗 个人中心, 我的订单以及订单详情页面 https://www.ele.me/profile/order (自己可以自行在饿了吗完成下单, 产生带数据的页面)
 
-##### 要求
+##### 要求 (包括 考核题目1 的要求)
 
-可以参考考核题目 1-8
-9. React-Router 用法 https://github.com/ReactTraining/react-router
-10. 订单页面分页
+1. React-Router 用法 https://github.com/ReactTraining/react-router
+2. 订单页面分页
 
 ##### 如何评定结果:
 
 1. 讲解自己的代码
+2. 回答 react 相关问题
