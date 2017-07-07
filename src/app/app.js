@@ -19,6 +19,7 @@ import CSSModule from './cssModule';
 // import { If, Else, Then } from './If';
 import TestHoC from './HoC/TestHoC';
 import Checkbox from './checkbox';
+import Radio from './radio';
 
 let profileData = {
 	name: 'HeHe',
@@ -37,6 +38,7 @@ class App extends React.Component {
 			value: 'xian',
 			loading: true,
 			checked: true,
+			radioChecked: true,
 			checkList: [
 				{label: 'React', checked: true},
 				{label: 'Flux', checked: false},
@@ -79,6 +81,12 @@ class App extends React.Component {
 	checkCheckboxGroupControl(checkList) {
 		this.setState({
 			checkList
+		});
+	}
+
+	checkRadio(radioChecked) {
+		this.setState({
+			radioChecked
 		});
 	}
 
@@ -197,6 +205,9 @@ class App extends React.Component {
 				</Checkbox.Group>
 				<h2>Checkbox Group(受控)</h2>
 				<Checkbox.Group checkList={this.state.checkList} onChange={::this.checkCheckboxGroupControl} />
+				<h2>Radio</h2>
+				<Radio checked={this.state.radioChecked} onChange={::this.checkRadio}>程序员</Radio>
+				<Radio label="开心" checked disabled />
             </div>
         );
     }

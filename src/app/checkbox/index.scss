@@ -1,5 +1,9 @@
 .checkbox {
+  margin: 3px;
+}
 
+.checkbox > i {
+  width: 16px;
 }
 
 .checkbox[disabled] {
