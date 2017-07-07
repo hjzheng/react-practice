@@ -8,7 +8,8 @@ class Checkbox extends Component {
 		children: PropTypes.node,
 		onChange: PropTypes.func,
 		defaultChecked: PropTypes.bool,
-		checked: PropTypes.bool
+		checked: PropTypes.bool,
+		disabled: PropTypes.bool
 	}
 
 	static defaultProps = {
@@ -33,6 +34,7 @@ class Checkbox extends Component {
 	}
 
 	check() {
+		if (this.props.disabled) return;
 		this.props.onChange(!this.state.checked, this.props.label || this.props.children);
 		if (typeof this.props.checked === 'undefined') {
 			this.setState({
@@ -43,7 +45,7 @@ class Checkbox extends Component {
 
 	render() {
 		return (
-			<label className="checkbox" onClick={this.checkHandler}>
+			<label className="checkbox" onClick={this.checkHandler} disabled={this.props.disabled}>
 				<i className={this.state.checked ? 'fa fa-check-square-o' : 'fa fa-square-o'} aria-hidden="true"></i>
 				<span className="checkbox-label">{this.props.label || this.props.children}</span>
 			</label>
@@ -104,10 +106,10 @@ class CheckboxGroup extends Component {
 		if (this.props.children && !this.props.checkList && !this.props.defaultCheckList) {
 			// 如果使用 children, 将里面的 checkbox 转换成受控组件
 			return this.props.children.map(ele => {
-				return <Checkbox key={ele.props.label || ele.props.children} label={ele.props.label} checked={ele.props.checked} onChange={::this.click}>{ele.props.children}</Checkbox>;
+				return <Checkbox key={ele.props.label || ele.props.children} disabled={ele.props.disabled} label={ele.props.label} checked={ele.props.checked} onChange={::this.click}>{ele.props.children}</Checkbox>;
 			});
 		} else {
-			return this.state.checkList.map(item => <Checkbox key={item.label} label={item.label} checked={item.checked} onChange={::this.click} />);
+			return this.state.checkList.map(item => <Checkbox key={item.label} disabled={item.disabled} label={item.label} checked={item.checked} onChange={::this.click} />);
 		}
 	}
 

@@ -184,7 +184,7 @@ class App extends React.Component {
 				<h2>Checkbox(非受控组件)</h2>
 				<Checkbox defaultChecked>AngularJS</Checkbox>
 				<Checkbox>React</Checkbox>
-				<Checkbox>Webpack</Checkbox>
+				<Checkbox disabled>Webpack</Checkbox>
 				<h2>Checkbox(受控组件)</h2>
 				<Checkbox checked={this.state.checked} onChange={::this.checkCheckbox}>AngularJS</Checkbox>
 				<h2>Checkbox Group(非受控)</h2>
