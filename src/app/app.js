@@ -18,6 +18,7 @@ import DropDown from './dropdown';
 import CSSModule from './cssModule';
 // import { If, Else, Then } from './If';
 import TestHoC from './HoC/TestHoC';
+import Checkbox from './checkbox';
 
 let profileData = {
 	name: 'HeHe',
@@ -34,7 +35,13 @@ class App extends React.Component {
 		this.state = {
 			visible: false,
 			value: 'xian',
-			loading: true
+			loading: true,
+			checked: true,
+			checkList: [
+				{label: 'React', checked: true},
+				{label: 'Flux', checked: false},
+				{label: 'Mobx', checked: false}
+			]
 		};
 		this.options = [
 			{ label: '西安', value: 'xian' },
@@ -44,6 +51,11 @@ class App extends React.Component {
 			{ label: '厦门', value: 'xiamen' },
 			{ label: '成都', value: 'chengdu' }
 		];
+		this.checkList = [
+			{label: 'AngularJS1.x', checked: true},
+			{label: 'AngularJS2', checked: false},
+			{label: 'AngularJS4', checked: false}
+		];
 	}
 
 	componentDidMount() {
@@ -52,6 +64,22 @@ class App extends React.Component {
 				loading: false
 			});
 		}, 3000);
+	}
+
+	checkCheckbox(checked) {
+		this.setState({
+			checked
+		});
+	}
+
+	checkCheckboxGroup(checkedList) {
+		console.log(checkedList);
+	}
+
+	checkCheckboxGroupControl(checkList) {
+		this.setState({
+			checkList
+		});
 	}
 
 	openConfirm() {
@@ -153,6 +181,22 @@ class App extends React.Component {
 				</For>
 				<h2>HoC</h2>
 				<TestHoC isLoading={this.state.loading} prop1="prop1" prop2="prop2" />
+				<h2>Checkbox(非受控组件)</h2>
+				<Checkbox defaultChecked>AngularJS</Checkbox>
+				<Checkbox>React</Checkbox>
+				<Checkbox>Webpack</Checkbox>
+				<h2>Checkbox(受控组件)</h2>
+				<Checkbox checked={this.state.checked} onChange={::this.checkCheckbox}>AngularJS</Checkbox>
+				<h2>Checkbox Group(非受控)</h2>
+				<Checkbox.Group defaultCheckList={this.checkList} onChange={::this.checkCheckboxGroup} />
+				<Checkbox.Group onChange={::this.checkCheckboxGroup}>
+					<Checkbox>平民</Checkbox>
+					<Checkbox>预言家</Checkbox>
+					<Checkbox>狼人</Checkbox>
+					<Checkbox>老板</Checkbox>
+				</Checkbox.Group>
+				<h2>Checkbox Group(受控)</h2>
+				<Checkbox.Group checkList={this.state.checkList} onChange={::this.checkCheckboxGroupControl} />
             </div>
         );
     }
