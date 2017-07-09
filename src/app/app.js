@@ -39,6 +39,7 @@ class App extends React.Component {
 			loading: true,
 			checked: true,
 			radioChecked: false,
+			radioGroupChecked: 'React',
 			checkList: [
 				{label: 'React', checked: true},
 				{label: 'Flux', checked: false},
@@ -87,6 +88,12 @@ class App extends React.Component {
 	checkRadio(radioChecked) {
 		this.setState({
 			radioChecked
+		});
+	}
+
+	checkRadioGroup(radioGroupChecked) {
+		this.setState({
+			radioGroupChecked
 		});
 	}
 
@@ -208,6 +215,12 @@ class App extends React.Component {
 				<h2>Radio</h2>
 				<Radio checked={this.state.radioChecked} onChange={::this.checkRadio}>程序员</Radio>
 				<Radio label="开心" checked disabled />
+				<h2>Radio Group(受控)</h2>
+				<Radio.Group value={this.state.radioGroupChecked} onChange={::this.checkRadioGroup}>
+					<Radio>Vue</Radio>
+					<Radio>AngularJS</Radio>
+					<Radio>React</Radio>
+				</Radio.Group>
             </div>
         );
     }

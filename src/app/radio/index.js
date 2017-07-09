@@ -47,7 +47,66 @@ class Radio extends Component {
 	}
 }
 
+class RadioGroup extends Component {
+
+	// TODO: children 和 checkList 只是展现形式, value 和 defaultValue 来区别受控和非受控, 目前只支持受控
+	static propTypes = {
+		value: PropTypes.any,
+		checkList: PropTypes.array,
+		selected: PropTypes.any,
+		children: PropTypes.oneOfType([
+			PropTypes.array,
+			PropTypes.element
+		]),
+		onChange: PropTypes.func
+	}
+
+	static defaultProps = {
+		onChange: () => {}
+	}
+
+	constructor(props) {
+		super(props);
+		let checkList = typeof this.props.checkList === 'undefined' ? this.props.children.map(ele => ({label: ele.props.label || ele.props.children})) : this.props.checkList;
+		this.state = {
+			checkList,
+			value: typeof this.props.value === 'undefined' ? checkList[0].label : this.props.value
+		};
+	}
+
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.value !== undefined) {
+			this.setState({
+				value: nextProps.value
+			});
+		}
+	}
+
+	click(checked, label) {
+		this.props.onChange(label);
+
+		// if (typeof this.props.value === 'undefined') {
+		// 	this.setState({
+		// 		value: label
+		// 	});
+		// }
+	}
+
+	_renderRadioItem() {
+		return this.state.checkList.map(item => <Radio key={item.label} disabled={item.disabled} label={item.label} checked={item.label === this.state.value} onChange={::this.click} />);
+	}
+
+	render() {
+		return (<div className="RadioGroup">
+			{this._renderRadioItem()}
+		</div>);
+	}
+}
+
+Radio.Group = RadioGroup;
+
+
 export default Radio;
 
 
-// Checkbox Group
+// Group

@@ -57,6 +57,7 @@ class CheckboxGroup extends Component {
 	/*
 	* 子 checkbox 必须按受控组件处理
 	* */
+	// TODO: 不应该使用 checkList 和 defaultCheckList (将里面的 checked 状态剥离出来) state 只需要保存 value, 不需要保存checkList 应该使用 value 和 default value
 	static propTypes = {
 		checkList: PropTypes.array,
 		defaultCheckList: PropTypes.array,
