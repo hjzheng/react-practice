@@ -68,11 +68,21 @@ class RadioGroup extends Component {
 	constructor(props) {
 		super(props);
 		let checkList = typeof this.props.checkList === 'undefined' ? this.props.children.map(ele => ({label: ele.props.label || ele.props.children})) : this.props.checkList;
+
 		this.state = {
 			checkList,
 			value: typeof this.props.value === 'undefined' ? checkList[0].label : this.props.value
 		};
 	}
+
+	// // 获取第一个 checked = true 的 label 值
+	// getValueFromChildren() {
+	// 	for (let i = 0; i < this.props.children.length; i++) {
+	// 		if (this.props.children[i].props.checked) {
+	// 			return this.props.children[i].props.label || this.props.children[i].props.children;
+	// 		}
+	// 	}
+	// }
 
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.value !== undefined) {
