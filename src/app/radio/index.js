@@ -33,10 +33,8 @@ class Radio extends Component {
 
 	check() {
 		if (this.props.disabled) return;
-		this.props.onChange(!this.state.checked, this.props.label || this.props.children);
-		// this.setState({
-		// 	checked: !this.state.checked
-		// });
+		this.state.checked = true;
+		this.props.onChange(this.state.checked, this.props.label || this.props.children);
 	}
 
 	render() {
@@ -48,14 +46,6 @@ class Radio extends Component {
 		);
 	}
 }
-
-class RadioGroup extends Component {
-	render() {
-		return null;
-	}
-}
-
-Radio.Group = RadioGroup;
 
 export default Radio;
 

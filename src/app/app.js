@@ -1,7 +1,7 @@
 import 'normalize.css';
 import './App.scss';
 // 添加 react-lumberjack https://github.com/ryanflorence/react-lumberjack
-import 'react-lumberjack';
+// import 'react-lumberjack';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Test from './jsx/Test';
@@ -38,7 +38,7 @@ class App extends React.Component {
 			value: 'xian',
 			loading: true,
 			checked: true,
-			radioChecked: true,
+			radioChecked: false,
 			checkList: [
 				{label: 'React', checked: true},
 				{label: 'Flux', checked: false},
