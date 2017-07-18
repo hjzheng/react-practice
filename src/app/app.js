@@ -213,8 +213,8 @@ class App extends React.Component {
 				<h2>Checkbox Group(受控)</h2>
 				<Checkbox.Group checkList={this.state.checkList} onChange={::this.checkCheckboxGroupControl} />
 				<h2>Radio</h2>
-				<Radio checked={this.state.radioChecked} onChange={::this.checkRadio}>程序员</Radio>
 				<Radio label="开心" checked disabled />
+				<Radio checked={this.state.radioChecked} onChange={::this.checkRadio}>程序员</Radio>
 				<h2>Radio Group(受控)</h2>
 				<Radio.Group value={this.state.radioGroupChecked} onChange={::this.checkRadioGroup}>
 					<Radio>Vue</Radio>

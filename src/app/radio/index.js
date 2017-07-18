@@ -118,5 +118,4 @@ Radio.Group = RadioGroup;
 
 export default Radio;
 
-
 // Group
