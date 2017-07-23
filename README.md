@@ -28,6 +28,7 @@
 - 关于 React 对文本加 react-text 注释(comments) 的[原因](https://stackoverflow.com/questions/38133978/reactjs-net-are-react-text-tags-required-when-rendered):
     - 该注释是提供为 React 内部使用的, 举例说明 如果你需要 render 两个彼此相邻的变量, React 通过这些注释区别两个变量的位置, 从而进行准确的更新, 之前版本使用的使用 `<span>`
 - 关于 React render 只能输出 0 个 或 1 个节点, 会导致添加不必要的包裹节点: [未来版本可能会支持多节点输出](https://github.com/facebook/react/issues/2127)
+    - 本人有一个想法, 可以通过加注释的方式(和 react-text 类似)将多节点包裹来解决该问题
 - State 应该放什么? 引用别人一段:
 
 ```js
