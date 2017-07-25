@@ -11,7 +11,7 @@ class CSSModule extends Component {
 	render() {
 		return (
 			<div className={styles.header}>
-				<h2 className={styles.title}>CSS Module 学习</h2>
+				<h2 className={`${styles.title}, ${styles.h2}`}>CSS Module 学习</h2>
 				{'css module 对所有 className 进行'}
 				{Object.keys(styles).map(key => <div key={key} className={styles.map}><span className={styles.key}>{key}:</span><span>{styles[key]}</span></div>)}
 				{'使用 composes 组合样式'}

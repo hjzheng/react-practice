@@ -46,8 +46,25 @@ $primary-color: #f40;
 */
 
 :global {
-  h2, h3 {
+  .h2, .h3 {
     color: #272296;
+  }
+}
+
+.context-menu {
+
+  //在local内部进行样式复写, 这样就不会污染所有样式
+
+  :global {
+    // 复写 Menu.Item 组件基础样式
+    .menu-content .menu-item {
+      padding: 0;
+      width: 100%;
+
+      > div {
+        padding: 0 20px;
+      }
+    }
   }
 }
 
