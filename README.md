@@ -80,6 +80,10 @@ function shouldIKeepSomethingInReactState() {
 - 受控组件和非受控组件
     - 如果实现自己的一套表单控件的话, 建议直接做成受控组件(不必考虑非受控组件情况). 好处: 1.实现简单 2.对数据进行更好的控制
 
+#### 代码风格
+- [Airbnb React/JSX Style Guide](https://github.com/airbnb/javascript/tree/master/react)
+- [如何安装 Airbnb ESLint 规则?](https://www.npmjs.com/package/eslint-config-airbnb) 目前不兼容 ESlint 4.0
+
 #### 相关书籍
 
 - [React（第2版）：引领未来的用户界面开发框架](https://book.douban.com/subject/26918475/) 入门经典
