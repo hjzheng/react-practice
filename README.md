@@ -21,6 +21,8 @@
     - modal
 - Mobx
 
+![image](https://raw.githubusercontent.com/hjzheng/react-practice/master/note/React.png)
+
 #### 乱七八糟
 
 - 关于 React 在 [0.13](https://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html) 中取消自动绑定的原因:
